@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
   
 app.get("/top", function(req, res) {
-  var id = req.body.id;
+  var id = req.query.id;
   pool.getConnection(function(err, connection){
     let query = "SELECT * FROM scores WHERE id = ? ORDER BY score DESC LIMIT 5 ";
     let todo = [id];
@@ -38,10 +38,9 @@ app.get("/top", function(req, res) {
 });
 
 app.get("/topg", function(req, res) {
-  var id = req.body.id;
   pool.getConnection(function(err, connection){
     let query = "SELECT * FROM scores ORDER BY score DESC LIMIT 5 ";
-    let todo = [id];
+    let todo = [""];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
         return console.error(err.message);
