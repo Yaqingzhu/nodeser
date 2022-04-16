@@ -23,7 +23,7 @@ app.get("/top", function(req, res) {
     let todo = [id];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
-        return console.error(err.message);
+        console.error(err);
       }
 
       const converted = JSON.parse(JSON.stringify(results))
@@ -44,7 +44,7 @@ app.get("/image", function(req, res) {
     let todo = [id];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
-        return console.error(err.message);
+        console.error(err);
       }
 
       const converted = JSON.parse(JSON.stringify(results))
@@ -64,7 +64,7 @@ app.get("/topg", function(req, res) {
     let todo = [""];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
-        return console.error(err.message);
+        console.error(err);
       }
 
       const converted = JSON.parse(JSON.stringify(results))
@@ -87,7 +87,7 @@ app.post("/score", function(req, res) {
     let todo = [id, score];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
-        return console.error(err.message);
+        console.error(err);
       }
     });
   })
@@ -104,7 +104,7 @@ app.post("/images", function(req, res) {
     let todo = [id, uri];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
-        return console.error(err.message);
+        console.error(err);
       }
     });
   })
