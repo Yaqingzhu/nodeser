@@ -34,6 +34,7 @@ app.get("/top", function(req, res) {
 
       res.send(result);
     });
+    connection.release();
   })
 });
 
@@ -55,6 +56,7 @@ app.get("/image", function(req, res) {
 
       res.send(result);
     });
+    connection.release();
   })
 });
 
@@ -75,6 +77,7 @@ app.get("/topg", function(req, res) {
 
       res.send(result);
     });
+    connection.release();
   })
 });
   
@@ -91,7 +94,7 @@ app.post("/score", function(req, res) {
       }
     });
   })
-    
+  connection.release();
   res.send("inserted");
 });
 
@@ -108,7 +111,7 @@ app.post("/images", function(req, res) {
       }
     });
   })
-    
+  connection.release();
   res.send("inserted");
 });
   
