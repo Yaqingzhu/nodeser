@@ -40,7 +40,7 @@ app.get("/top", function(req, res) {
 app.get("/image", function(req, res) {
   var id = req.query.id;
   pool.getConnection(function(err, connection){
-    let query = "SELECT * FROM images WHERE id = ? ORDER BY ind DESC LIMIT 1";
+    let query = "SELECT * FROM images WHERE id = ? ORDER BY RAND() LIMIT 1";
     let todo = [id];
     connection.query(query, todo, (err, results, fields) => {
       if (err) {
